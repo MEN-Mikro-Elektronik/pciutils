@@ -195,7 +195,7 @@ pci_filter_parse_slot_v30(struct pci_filter_v30 *f, char *str)
   struct pci_filter new;
   char *err;
   pci_filter_import_v30(f, &new);
-  if (err = pci_filter_parse_slot_v33(&new, str))
+  if ( (err = pci_filter_parse_slot_v33(&new, str)) )
     return err;
   pci_filter_export_v30(&new, f);
   return NULL;
@@ -207,7 +207,7 @@ pci_filter_parse_id_v30(struct pci_filter_v30 *f, char *str)
   struct pci_filter new;
   char *err;
   pci_filter_import_v30(f, &new);
-  if (err = pci_filter_parse_id_v33(&new, str))
+  if ( (err = pci_filter_parse_id_v33(&new, str)) )
     return err;
   if (new.device_class >= 0)
     return "Filtering by class not supported in this program";

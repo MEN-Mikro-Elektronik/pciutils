@@ -28,7 +28,7 @@ static char *id_lookup(struct pci_access *a, int flags, int cat, int id1, int id
       if (!tried_hwdb && !(flags & (PCI_LOOKUP_SKIP_LOCAL | PCI_LOOKUP_NO_HWDB)))
 	{
 	  tried_hwdb = 1;
-	  if (name = pci_id_hwdb_lookup(a, cat, id1, id2, id3, id4))
+	  if ( (name = pci_id_hwdb_lookup(a, cat, id1, id2, id3, id4)) )
 	    {
 	      pci_id_insert(a, cat, id1, id2, id3, id4, name, SRC_HWDB);
 	      continue;
@@ -36,7 +36,7 @@ static char *id_lookup(struct pci_access *a, int flags, int cat, int id1, int id
 	}
       if (flags & PCI_LOOKUP_NETWORK)
         {
-	  if (name = pci_id_net_lookup(a, cat, id1, id2, id3, id4))
+	  if ( (name = pci_id_net_lookup(a, cat, id1, id2, id3, id4)))
 	    {
 	      pci_id_insert(a, cat, id1, id2, id3, id4, name, SRC_NET);
 	      pci_mfree(name);

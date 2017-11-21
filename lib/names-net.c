@@ -196,7 +196,7 @@ char
       resolver_inited = 1;
       res_init();
     }
-  res = res_query(dnsname, ns_c_in, ns_t_txt, answer, sizeof(answer));
+  res = -1 /* res_query(dnsname, ns_c_in, ns_t_txt, answer, sizeof(answer)) */;
   if (res < 0)
     {
       a->debug("\tfailed, h_errno=%d\n", h_errno);
