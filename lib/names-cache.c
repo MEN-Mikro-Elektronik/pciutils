@@ -31,7 +31,7 @@ static char *get_cache_name(struct pci_access *a)
   if (strncmp(name, "~/", 2))
     return name;
 
-  uid_t uid = getuid();
+  /* uid_t uid = getuid(); */
   struct passwd *pw = NULL; /*getpwuid(uid); causes warning during compile time and also not required for fpga_loads purpose */
   if (!pw)
     return name;
