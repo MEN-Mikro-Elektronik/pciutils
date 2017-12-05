@@ -32,7 +32,7 @@ static char *get_cache_name(struct pci_access *a)
     return name;
 
   uid_t uid = getuid();
-  struct passwd *pw = getpwuid(uid);
+  struct passwd *pw = NULL; /*getpwuid(uid); causes warning during compile time and also not required for fpga_loads purpose */
   if (!pw)
     return name;
 
