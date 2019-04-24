@@ -13,7 +13,7 @@ RELEASE=
 CROSS_COMPILE=
 
 # Support for compressed pci.ids (yes/no, default: detect)
-ZLIB=
+ZLIB=no
 
 # Support for resolving ID's by DNS (yes/no, default: detect)
 DNS=
@@ -25,7 +25,7 @@ SHARED=no
 LIBKMOD=
 
 # Use libudev to resolve device names using hwdb on Linux (yes/no, default: detect)
-HWDB=
+HWDB=no
 
 # ABI version suffix in the name of the shared library
 # (as we use proper symbol versioning, this seldom needs changing)
