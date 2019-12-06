@@ -152,7 +152,7 @@ char
 *pci_id_net_lookup(struct pci_access *a, int cat, int id1, int id2, int id3, int id4)
 {
   static int resolver_inited;
-  char name[256], dnsname[256], txt[256], *domain;
+  char name[32], dnsname[256], txt[256], *domain;
   byte answer[4096];
   const byte *data;
   int res, j, dlen;
@@ -188,7 +188,7 @@ char
     default:
       return NULL;
     }
-  sprintf(dnsname, "%s.%s", name, domain);
+  snprintf(dnsname, sizeof(dnsname), "%s.%s", name, domain);
 
   a->debug("Resolving %s\n", dnsname);
   if (!resolver_inited)
